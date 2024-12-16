@@ -32,7 +32,7 @@ services:
       - CHATGPT_GATEWAY_URL=http://chat2api:5005/${API_PREFIX:-}
 
   chat2api:
-    image: lanqian528/chat2api:latest
+    image: shishumo/chat2api:latest
     container_name: chat2api
     restart: unless-stopped
     ports:
