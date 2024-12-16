@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   chat2api:
     image: lanqian528/chat2api:latest
@@ -20,3 +18,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --cleanup --interval 300 chat2api
+
+  cf5s:
+    image: dairoot/cf5s:latest
+    restart: always
+    environment:
+      - CHATGPT_GATEWAY_URL=http://chat2api:5005/${API_PREFIX:-}
